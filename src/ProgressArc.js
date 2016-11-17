@@ -1,19 +1,9 @@
-import React, { Component, PropTypes } from 'react'
+import React, {Component, PropTypes} from 'react'
 import * as d3 from "d3"
 
 class ProgressArc extends Component {
 
-  static propTypes = {
-    id: PropTypes.string.isRequired,
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-    innerRadius: PropTypes.number.isRequired,
-    outerRadius: PropTypes.number.isRequired,
-    backgroundColor: PropTypes.string.isRequired,
-    foregroundColor: PropTypes.string.isRequired,
-    percentComplete: PropTypes.number.isRequired,
-    duration: PropTypes.number.isRequired
-  }
+
 
   componentDidMount() {
     this.drawArc()
@@ -54,7 +44,8 @@ class ProgressArc extends Component {
   }
 
   setContext() {
-    const { height, width, id} = this.props
+    const {height, width, id} = this.props
+
     return d3.select(this.refs.arc).append('svg')
       .attr('height', height)
       .attr('width', width)
@@ -91,6 +82,20 @@ class ProgressArc extends Component {
       <div ref="arc"></div>
     )
   }
+}
+
+const {string, number} = PropTypes
+
+ProgressArc.propTypes = {
+   id: string.isRequired,
+   height: number.isRequired,
+   width: number.isRequired,
+   innerRadius: number.isRequired,
+   outerRadius: number.isRequired,
+   backgroundColor: string.isRequired,
+   foregroundColor: string.isRequired,
+   percentComplete: number.isRequired,
+   duration: number.isRequired
 }
 
 export default ProgressArc

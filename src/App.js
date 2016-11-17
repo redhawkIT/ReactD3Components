@@ -3,16 +3,13 @@ import ProgressArc from './ProgressArc'
 
 class App extends Component {
 
-  constructor(props) {
-     super(props)
-     this.state = {percentComplete: 0.3}
-   }
+  state = {percentComplete: 0.3}
 
   togglePercent = () => {
     const percentage = this.state.percentComplete === 0.3 ? 0.7 : 0.3
     this.setState({percentComplete: percentage})
   }
-  
+
   render() {
 
   return (
